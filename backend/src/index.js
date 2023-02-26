@@ -8,7 +8,7 @@ const TOKEN = process.env.BOT_API
 const TRELLO_API = process.env.TRELLO_API
 const TRELLO_TOKEN = process.env.TRELLO_TOKEN
 
-const bot = new TelegramBot(TOKEN, { polling: true });
+const bot = new TelegramBot(TOKEN, { polling: { interval: 10000 } });
 const trello = new Trello(TRELLO_API, TRELLO_TOKEN);
 
 

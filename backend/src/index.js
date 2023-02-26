@@ -1,5 +1,4 @@
 require("dotenv").config()
-const Agent = require('socks5-https-client/lib/Agent')
 const TelegramBot = require("node-telegram-bot-api");
 const axios = require("axios");
 const fetch = require('node-fetch');
@@ -9,17 +8,7 @@ const TRELLO_API = process.env.TRELLO_API
 const TRELLO_TOKEN = process.env.TRELLO_TOKEN
 
 const bot = new TelegramBot(TOKEN, {
-    polling: true,
-    request: {
-        agentClass: Agent,
-        agentOptions: {
-            socksHost: process.env.PROXY_SOCKS5_HOST,
-            socksPort: parseInt(process.env.PROXY_SOCKS5_PORT),
-            // If authorization is needed:
-            // socksUsername: process.env.PROXY_SOCKS5_USERNAME,
-            // socksPassword: process.env.PROXY_SOCKS5_PASSWORD
-        }
-    }
+    polling: true
 });
 const trello = new Trello(TRELLO_API, TRELLO_TOKEN);
 

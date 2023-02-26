@@ -83,16 +83,17 @@ bot.onText(/\/addcard (.+) to (.+)/, async (msg, match) => {
 });
 
 
-bot.onText(/\/removecard (.+)/, async (msg, match) => {
+bot.onText(/\/removecard (.+) to (.+)/, async (msg, match) => {
     const chatId = msg.chat.id;
     const cardName = match[1];
+    const boardName = match[2];
 
     try {
         const boards = await trello.getBoards('me');
-        const board = boards.find(b => b.name === 'test');
+        const board = boards.find(b => b.name === boardName);
 
         if (!board) {
-            throw new Error(`Trello board "test" not found`);
+            throw new Error(`Trello board ${boardName} not found`);
         }
         console.log('Found board:', board);
         const cards = await trello.getCardsOnBoard(board.id);
@@ -110,6 +111,37 @@ bot.onText(/\/removecard (.+)/, async (msg, match) => {
         bot.sendMessage(chatId, `Error removing card from Trello board: ${err.message}`);
     }
 });
+
+// bot.onText(/\/removecard  (.+)/, async (msg,match) => {
+//     try {
+//         const boardName = match[1];
+//         const boards = await trello.getBoards("me", {});
+//         const board = boards.find((b) => b.name === boardName);
+//         if (!board) {
+//             bot.sendMessage(msg.chat.id, `Trello board "${boardName}" not found.`);
+//             return;
+//         }
+//         const lists = await trello.getListsOnBoard(board.id);
+//         const list = lists[0];
+//         if (!list) {
+//             bot.sendMessage(msg.chat.id, `Trello list not found on board "${boardName}".`);
+//             return;
+//         }
+//         const cards = await trello.getCardsOnList(list.id);
+//         const card = cards.find((c) => c.name === "test card");
+//         if (!card) {
+//             bot.sendMessage(msg.chat.id, "Trello card not found.");
+//             return;
+//         }
+//         await trello.deleteCard(card.id);
+//         bot.sendMessage(msg.chat.id, "Trello card removed successfully.");
+//     } catch (err) {
+//         bot.sendMessage(msg.chat.id, `Error removing Trello card: ${err.message}`);
+//     }
+// });
+
+
+
 
 bot.onText(/\/boards/, async (msg) => {
     const chatId = msg.chat.id;

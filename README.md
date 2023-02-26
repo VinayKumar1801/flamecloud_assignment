@@ -1,10 +1,6 @@
 # flamecloud_assignment
 - Telegram bot name - trello_board_bot
 
-## Live demo
-* [Click Here](https://t.me/trello_board_bot/) to view the bot on Telegram.
-* Backend deployed link-
-
 ## Introduction
 This microservice has been made to create and manage Trello boards with the help of Trello.com's APIs and a Telegram bot. It can be used to make and delete boards, add and remove cards from boards.In order to utilize this bot, you need to have a Telegram account first and then search for trello_board_bot, adding it to your Telegram profile.
 

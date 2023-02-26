@@ -1,8 +1,9 @@
+require("dotenv").config()
+process.env.NTBA_FIX_319 = 1
 const TelegramBot = require("node-telegram-bot-api");
 const axios = require("axios");
 const fetch = require('node-fetch');
 const Trello = require('trello');
-require("dotenv").config()
 const TOKEN = process.env.BOT_API
 const TRELLO_API = process.env.TRELLO_API
 const TRELLO_TOKEN = process.env.TRELLO_TOKEN

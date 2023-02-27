@@ -10,7 +10,6 @@ Before using this microservice, the following is needed:
 1. A Trello account with an API key and token
 2. A Telegram bot with an API token
 3. Node.js be installed on your device
-4. Getting Started
 
 ## To get this microservice up and running, do the following:
 Clone the repository or download the code

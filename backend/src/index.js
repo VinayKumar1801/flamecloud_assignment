@@ -3,6 +3,11 @@ const TelegramBot = require("node-telegram-bot-api");
 const axios = require("axios");
 const fetch = require('node-fetch');
 const Trello = require('trello');
+const express = require("express")
+const app = express()
+app.get("/", (req, res) => {
+    res.send("Hello World!")
+})
 const TOKEN = process.env.BOT_API
 const TRELLO_API = process.env.TRELLO_API
 const TRELLO_TOKEN = process.env.TRELLO_TOKEN
@@ -128,3 +133,9 @@ bot.onText(/\/boards/, async (msg) => {
         bot.sendMessage(chatId, `Error getting Trello boards: ${err.message}`);
     }
 });
+
+
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log("Server Running...")
+})

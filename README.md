@@ -19,11 +19,11 @@ Create a .env file in the project directory and add your Trello API key and toke
 Launch the microservice by executing the npm start command within the project directory.
 
 ## This service supports commands sent to a Telegram bot for use with the Trello API to accomplish tasks. Here are the commands supported:
-/createboard [board name] - Constructs a new board with the given name in Trello.
-/deleteboard [board id]- Eliminates the Trello board denoted as "test".
-/addcard [card name] to [board name] - Incorporates a card with the specified name to the Trello board. 
-/removecard [card name] to [board name] - Removes the card with the particular name from the Trello board.
-/boards - Obtains a list of all Trello boards owned by the authenticated user.
+1. /createboard [board name] - Constructs a new board with the given name in Trello.
+2. /deleteboard [board id]- Eliminates the Trello board denoted as "test".
+3. /addcard [card name] to [board name] - Incorporates a card with the specified name to the Trello board.
+4. /removecard [card name] to [board name] - Removes the card with the particular name from the Trello board.
+5. /boards - Obtains a list of all Trello boards owned by the authenticated user.
 
 # Error Handling
 If a problem arises while trying to complete an action, the microservice will send out a notification to the Telegram chat with details about what went wrong and how to fix it. 

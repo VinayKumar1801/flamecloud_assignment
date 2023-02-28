@@ -17,7 +17,7 @@ Before using this microservice, the following is needed:
 
 ## This service supports commands sent to a Telegram bot for use with the Trello API to accomplish tasks. Here are the commands supported:
 1. /createboard [board name] - Constructs a new board with the given name in Trello.
-2. /deleteboard [board id]- Eliminates the Trello board denoted as "test".
+2. /deleteboard [board id]- Eliminates the Trello board.
 3. /addcard [card name] to [board name] - Incorporates a card with the specified name to the Trello board.
 4. /removecard [card name] to [board name] - Removes the card with the particular name from the Trello board.
 5. /boards - Obtains a list of all Trello boards owned by the authenticated user.

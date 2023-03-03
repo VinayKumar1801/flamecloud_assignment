@@ -29,7 +29,7 @@ Before using this microservice, the following is needed:
 ## Frontend
 It has a navbar with 3 options on its homepage. Besides checking all the boards' names with their board ID, you can also create a new board, search for a board using its ID, but if you don't have your Trello API key and token, your board will be unable to be created, and you won't be able to search for it.
 
-# Error Handling
+## Error Handling
 If a problem arises while trying to complete an action, the microservice will send out a notification to the Telegram chat with details about what went wrong and how to fix it. 
 
 ## Conclusion

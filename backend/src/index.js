@@ -126,7 +126,7 @@ bot.onText(/\/boards/, async (msg) => {
             throw new Error('No Trello boards found');
         }
         const boardList = boards.map((board) => {
-            return `- ${board.name} (${board.url})`;
+            return `- ${board.name} (${board.url}) (${board.id})` ;
         }).join('\n');
         bot.sendMessage(chatId, `Here are your Trello boards:\n${boardList}`);
     } catch (err) {
@@ -134,8 +134,27 @@ bot.onText(/\/boards/, async (msg) => {
     }
 });
 
+bot.onText(/\/setup/, async (msg) => {
+    const chatId = msg.chat.id;
 
-const PORT = 3000;
+    bot.sendMessage(chatId, "Please enter your Trello API key:");
+
+    bot.once("message", async (apiKey) => {
+        bot.sendMessage(chatId, "Please enter your Trello token:");
+
+        bot.once("message", async (token) => {
+            try {
+                const newTrello = new Trello(apiKey.text.trim(), token.text.trim());
+                bot.sendMessage(chatId, "Trello API key and token set up successfully.");
+            } catch (err) {
+                console.error(err);
+                bot.sendMessage(chatId, "Error setting up Trello API key and token. Please try again later.");
+            }
+        });
+    });
+});
+
+const PORT = 8000;
 app.listen(PORT, () => {
     console.log("Server Running...")
 })

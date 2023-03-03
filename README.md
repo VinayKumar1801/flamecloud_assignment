@@ -24,6 +24,7 @@ Before using this microservice, the following is needed:
 3. /addcard [card name] to [board name] - Incorporates a card with the specified name to the Trello board.
 4. /removecard [card name] to [board name] - Removes the card with the particular name from the Trello board.
 5. /boards - Obtains a list of all Trello boards owned by the authenticated user.
+6. /setup - Setup trello API and Token through bot.
 
 ## Frontend
 It has a navbar with 3 options on its homepage. Besides checking all the boards' names with their board ID, you can also create a new board, search for a board using its ID, but if you don't have your Trello API key and token, your board will be unable to be created, and you won't be able to search for it.
